@@ -1,0 +1,32 @@
+<% include header %>
+
+<div class="backlit-box">
+    <h1>Register new account:</h1>
+    <br><br>
+    <form method="POST" action="/register">
+        <p>first name:</p> 
+        <input type="text" name="firstname">
+        <p>last name:</p> 
+        <input type="text" name="lastname">
+        <p class="red"><% if(inputMsg.invalidName) %> <%= inputMsg.invalidName %> </p>
+        <p>username:</p> 
+        <input type="text" name="username">
+        <p class="red"><% if(inputMsg.reservedUsername) %> <%= inputMsg.reservedUsername %> </p>
+        <p class="red"><% if(inputMsg.invalidUsername) %> <%= inputMsg.invalidUsername %> </p>
+        <p>e-mail:</p>
+        <input type="text" name="email">
+        <p class="red"><% if(inputMsg.invalidEmail) %> <%= inputMsg.invalidEmail %> </p>
+        <p>password:</p> 
+        <input type="password" name="password">
+        <p>confirm password:</p>
+        <input type="password" name="passwordAgain">
+        <p class="red"><% if(inputMsg.pwdMatch) %> <%= inputMsg.pwdMatch %> </p>
+        <p class="red"><% if(inputMsg.pwdCharLimit) %> <%= inputMsg.pwdCharLimit %> </p>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+<a href="/">back</a>
+</div>
+
+<% include footer %>

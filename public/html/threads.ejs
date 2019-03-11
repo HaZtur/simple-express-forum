@@ -1,0 +1,41 @@
+<% include header %>
+
+<div class="backlit-box-home">
+    <% if (typeof threads[0] !== 'undefined') {%>
+
+    <% if(page <= 0) { %> 
+            <% page = 1;%> 
+            <% pageMax = 10;%>
+         <% } %>
+        <% if(page >= Math.ceil(threads.length / 10)) { %>
+            <% page = Math.ceil(threads.length / 10); %>
+            <% pageMax = page + 10; %>
+    <% } %>
+
+    <h1>Welcome to <%= threads[0].categoryId.name %>!</h1>
+    <br>
+
+        <!-- For some reason the threads.length subtraction in the condition evaluation is affecting 
+             the value of threads.length in the false condition of the ternary operation. -->
+        <% for(let i = ((page - 1) * 10); i < ((threads.length - (page - 1) * 10) > 10 ? pageMax : threads.length); i++) { %>
+            <a href="/home/<%= categoryId %>/post/<%= threads[i].id %>?page=1">
+                <div class="category">
+                    <h2><%= threads[i].topic %></h2>
+                    <p><%= threads[i].userId.user %></p>
+                    <i><%= new Date(parseInt(threads[i].created)) %></i>
+                </div>
+            </a>
+        <% } %>
+        <% for(let j = 1; j <= Math.ceil(threads.length / 10); j++) {%>
+            <% if(j == page) { %>
+                <span><%= j %></span>
+            <% }else { %>
+                <a href="/home/<%= categoryId %>?page=<%= j %>"><%= j %></a>
+            <% } %>
+        <% } %>
+    <% }else { %><p>No threads here yet! Now is your chance to be 'First'!</p><% } %>
+    <br><br>
+    <a href="/home/<%= categoryId %>/newThread">+ Create new thread! +</a>
+</div>
+
+<% include footer %>

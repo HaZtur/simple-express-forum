@@ -1,0 +1,185 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    background-image: url('../images/d1aaa2af.png');
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.header {
+    height: 60px;
+    background-color: rgb(40,40,40);
+    box-shadow: 0px 0px 10px black;
+    position: sticky;
+    top: 0;
+    text-align: left;
+    z-index: 1;
+}
+
+.header h2 {
+    position: relative;
+    float: left;
+    color: white;
+    margin: 0;
+    margin-left: 10px;
+    text-shadow: 5px 4px black;
+}
+
+.wrapper {
+    margin: 0 15% 0 15%;
+    background-color: rgb(40,40,40);
+    min-height: 100%;
+    /* padding: 50px; */
+    margin-top: -60px;
+}
+
+.wrapper a {
+    color: rgb(7, 150, 7);
+
+}
+
+.backlit-box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px dotted grey;
+    border-radius: 20px;
+    padding: 20px 50px 50px 50px;
+    box-shadow: 0px 0px 30px green;
+    background-color: rgb(60, 60, 60);
+    z-index: 0;
+}
+
+.backlit-box-home{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px dotted grey;
+    border-radius: 20px;
+    padding: 20px 50px 50px 50px;
+    box-shadow: 0px 0px 30px green;
+    background-color: rgb(60, 60, 60);
+    min-height: 100%;
+    margin-top: 60px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
+.user-menu {
+    position: relative;
+    float: right;
+    width: 70px;
+    height: 60px;
+}
+
+.user-menu-btn {
+    height: 100%;
+    width: 100%;
+    margin-top: -20px;
+    /* border: 1px dashed black; */
+}
+
+.user-menu-btn img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 100%;
+    padding: 4px;
+    background-color: rgb(60, 60, 60);
+}
+
+.user-menu:hover {
+    background-color: rgb(60, 60, 60);
+}
+
+.user-menu:hover .user-menu-btn {
+    background-color: rgb(60, 60, 60);
+}
+
+.user-menu-content {
+    display: none;
+    width: 100px;
+    float: right;
+    box-shadow: -5px 4px 10px black;
+}
+
+.user-menu-content input {
+    border: none;
+    background-color: rgb(60, 60, 60);
+    margin: 0;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    /* border-top: 1px dashed black; */
+}
+
+.user-menu:hover .user-menu-content {
+    display: block;
+}
+
+.user-menu-content input:hover {
+    background-color: rgb(50, 50, 50);
+    text-decoration: underline;
+}
+
+.category {
+    text-align: left;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(80, 80, 80);
+}
+
+.category:hover {
+    cursor: pointer;
+    /* background-color: rgb(100, 100, 100); */
+    box-shadow: 0px 0px 20px green;
+}
+
+.post {
+    text-align: left;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(80, 80, 80);
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+.post::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.post-user {
+    float: left;
+    width: 20%;
+}
+
+.post-content {
+    float: left;
+    width: 80%;
+}

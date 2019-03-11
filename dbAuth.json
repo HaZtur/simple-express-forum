@@ -1,0 +1,5 @@
+{
+    "user" : "admin",
+    "pwd" : "admin",
+    "url" : "localhost:27017/forumDB"
+}

@@ -1,0 +1,58 @@
+<% include header %>
+
+<div class="backlit-box-home">
+    <% if(typeof posts[0] !== 'undefined') { %>
+        
+        <% if(page <= 0) { %> 
+            <% page = 1;%> 
+            <% pageMax = 20;%>
+         <% } %>
+        <% if(page >= Math.ceil(posts.length / 20)) { %>
+            <% page = Math.ceil(posts.length / 20); %>
+            <% pageMax = page + 20; %>
+        <% } %>
+
+        <div style="text-align: left">
+            <a href="/home/<%= categoryId %>?page=1" >&laquo;  Back to threads</a>
+        </div>
+
+        <h2>Thread: <%= posts[0].threadId.topic %></h2>
+        <br>
+
+        <% for(let i = ((page - 1) * 20); i < ((posts.length - (page - 1) * 20) > 20 ? (pageMax) : posts.length); i++) { %>
+                <div class="post" id="post<%= i + 1 %>"> 
+                    <div class="post-user">
+                        <span style="font-size: 10pt; margin: 0px;"> <%= i + 1%>. </span>
+                        <h2><%= posts[i].userId.user %></h2>
+                        <span>Joined: <%= new Date(parseInt(posts[i].userId.created)).toString().slice(4, 15) %></span>
+                        <p>Posts: <%= posts[i].userId.postNum %> </p>
+                    </div>
+                    <div class="post-content">
+                        <i>posted: <%= new Date(parseInt(posts[i].created)) %></i>
+                        <p><%= posts[i].content %></p>
+                    </div>
+                </div>
+        <% } %>
+        <br>
+        <% for(let j = 1; j <= Math.ceil(posts.length / 20); j++) {%>
+            <% if(j == page) { %>
+                <span><%= j %></span>
+            <% }else { %>
+                <a href="/home/<%= categoryId %>/post/<%= threadId %>?page=<%= j %>"><%= j %></a>
+            <% } %>
+        <% } %>
+        <br><br>
+        <h3>New post:</h3>
+        <form method="POST" action="/home/<%= categoryId %>/post/<%= threadId %>">
+            <textarea name="newPost" rows="14" cols="50"></textarea>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+    <% } %>
+
+    <div style="text-align: left">
+        <a href="/home/<%= categoryId %>?page=1" >&laquo;  Back to threads</a>
+    </div>
+</div>
+
+<% include footer %>

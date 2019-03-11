@@ -1,0 +1,16 @@
+<% include header %>
+
+<div class="backlit-box">
+    <h2>Create new thread:</h2>
+        <form method="POST" action="/home/<%= categoryId %>/newThread">
+        <p>topic:</p>
+        <input type="text" name="topic">
+        <p>post:</p>
+        <textarea name="stuff" rows="15" cols="60"></textarea> <br>
+        <input type="submit" value="submit">
+    </form>
+    <br>
+    <a href="/home/<%= categoryId %>?page=1">Back</a>
+</div>
+
+<% include footer %>

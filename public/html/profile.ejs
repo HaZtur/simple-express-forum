@@ -1,0 +1,28 @@
+<% include header %>
+
+<div class="backlit-box">
+    <div style="text-align:left;">
+        <h1><%= user.user %>'s Profile:</h1>
+        <h4>name: <%= user.firstname %> <%= user.lastname %></h4>
+        <h4>e-mail: <%= user.email %></h4>
+        <h4>joined: <%= new Date(parseInt(user.created)).toString().slice(4, 15) %></h4>
+        <h4>posts: <%= user.postNum %> </h4>
+    </div>
+    <br><hr><br>
+    <h4>Change password:</h4>
+    <p class="green"><% if(inputMsg.pwdUpdateSuccess) %> <%= inputMsg.pwdUpdateSuccess %> </p>
+    <form method="POST" action="/profile">
+        <p>current password:</p>
+        <input type="password" name="currentPwd">
+        <p class="red"><% if(inputMsg.wrongPwd) %> <%= inputMsg.wrongPwd %> </p>
+        <p>new password:</p>
+        <input type="password" name="newPwd">
+        <p>confirm password:</p>
+        <input type="password" name="confirmPwd">
+        <p class="red"><% if(inputMsg.pwdDontMatch) %> <%= inputMsg.pwdDontMatch %> </p>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</div>
+
+<% include footer %>

@@ -1,0 +1,19 @@
+<% include header %>
+
+<div class="backlit-box">
+    <h1>Welcome!</h1>
+    <p class="green"><% if(inputMsg.accountCreated) { %> <%= inputMsg.accountCreated %> <% }else{ %> <br> <% } %> </p>
+    <form method="POST" action="/login">
+        username: 
+        <input type="text" name="username">
+        <br><br>
+        password: 
+        <input type="password" name="password">
+        <p class="red"><% if(inputMsg.invalidLogin){ %> <%= inputMsg.invalidLogin %> <% }else{ %> <br> <% } %> </p>
+        <input type="submit" value="Login">
+    </form>
+    <br>
+<a href="/register">Register new account</a>
+</div>
+
+<% include footer %>

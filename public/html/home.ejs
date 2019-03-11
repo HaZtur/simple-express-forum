@@ -1,0 +1,15 @@
+<% include header %>
+
+<div class="backlit-box">
+    <h1>BestestForum</h1>
+    <% for(let i = 0; i < categories.length; i++) { %>
+        <a href="/home/<%= categories[i].id%>?page=1">
+            <div class="category">
+                <h2><%= categories[i].name %></h2>
+                <p><%= categories[i].description %></p>
+            </div>
+        </a>
+    <% } %>
+</div>
+
+<% include footer %>
