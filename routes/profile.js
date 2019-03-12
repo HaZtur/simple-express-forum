@@ -27,7 +27,7 @@ route.get("/", (req, res) => {
             console.log(err);
             res.redirect("/error");
             inputMsg = {};
-        })
+        });
     
 });
 
@@ -57,8 +57,8 @@ route.post("/", (req, res) => {
                 inputMsg.wrongPwd = "Wrong password!";
                 res.redirect("/profile");
             }
-        })
-    })
+        });
+    });
 });
 
 module.exports = route;

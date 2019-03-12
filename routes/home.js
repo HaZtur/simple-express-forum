@@ -25,7 +25,7 @@ route.get("/", (req, res) => {
         .catch((err) => {
             console.log(err);
             res.redirect('/error');
-        })
+        });
 });
 
 route.get("/:categoryId", (req, res) => {
@@ -43,7 +43,7 @@ route.get("/:categoryId", (req, res) => {
         .catch((err) => {
             console.log(err);
             res.redirect('/error');   
-        })
+        });
 });
 
 route.get("/:categoryId/newThread", (req, res) => {
@@ -66,7 +66,7 @@ route.get("/:categoryId/post/:threadId", (req, res) => {
         .catch((err) => {
             console.log(err);
             res.redirect('/error');
-        })
+        });
 });
 
 
@@ -82,7 +82,7 @@ route.post("/logout", (req, res) => {
             res.clearCookie("session");
             res.redirect("/");
         }
-    })
+    });
 });
 
 route.post("/:categoryId/newThread", (req, res) => {
@@ -110,7 +110,7 @@ route.post("/:categoryId/newThread", (req, res) => {
             if (err){
                 console.log(err);
                 res.redirect('/error');
-            };
+            }
             user.updateOne({ _id : req.session.userId }, { $inc: {postNum : 1 }}).exec();
         });
         
@@ -131,7 +131,7 @@ route.post("/:categoryId/post/:threadId", (req, res) => {
         if (err){
             console.log(err);
             res.redirect('/error');
-        };
+        }
 
         user.updateOne({ _id : req.session.userId }, { $inc: {postNum : 1 }}).exec();
     });
@@ -140,7 +140,7 @@ route.post("/:categoryId/post/:threadId", (req, res) => {
         if (err){
             console.log(err);
             res.redirect('/error');
-        };
+        }
 
         let page = Math.ceil((posts + 1) / 20);
         

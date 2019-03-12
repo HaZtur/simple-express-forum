@@ -115,9 +115,9 @@ route.post("/login", (req, res) => {
                     inputMsg.invalidLogin = "Invalid login!";
                     res.redirect("/");
                 }
-            })
+            });
         } 
-    })
+    });
 });
 
 route.post("/register", redirectHome, nameValidation, usernameValidation, emailValidation, passwordValidation, (req, res) => {
@@ -134,6 +134,6 @@ route.post("/register", redirectHome, nameValidation, usernameValidation, emailV
 
     inputMsg.accountCreated = "Account created successfully!";
     res.redirect("/");
-})
+});
 
 module.exports = route;
