@@ -13,7 +13,7 @@ route.use("/", (req, res, next) =>{
     }else{
         res.redirect("/");
     }
-})
+});
 
 
 //Routes
@@ -30,6 +30,7 @@ route.get("/", (req, res) => {
 
 route.get("/:categoryId", (req, res) => {
     let pageMax = (parseInt(req.query.page) * 10);
+    
     thread.find({ categoryId : req.params.categoryId}).sort({ created:-1 }).populate('userId').populate('categoryId')
         .then((thr) => {
             res.render("./threads.ejs", { 
@@ -51,6 +52,7 @@ route.get("/:categoryId/newThread", (req, res) => {
 
 route.get("/:categoryId/post/:threadId", (req, res) => {
     let pageMax = (parseInt(req.query.page) * 20);
+    
     post.find({ threadId : req.params.threadId }).sort({ created: 1 }).populate('userId').populate('threadId')
         .then((pst) => {
             res.render("./posts.ejs", { 

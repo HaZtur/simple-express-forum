@@ -13,7 +13,7 @@ route.use("/", (req, res, next) =>{
     }else{
         res.redirect("/");
     }
-})
+});
 
 
 //Routes

@@ -26,7 +26,7 @@ const nameValidation = (req, res, next) =>{
         res.redirect("/register");
     }
     
-}
+};
 
 const usernameValidation = (req, res, next) => {
     const format = /^\w+/;
@@ -44,7 +44,7 @@ const usernameValidation = (req, res, next) => {
             res.redirect("/register");
         }
     });
-}
+};
 
 const emailValidation = (req, res, next) =>{
     const format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

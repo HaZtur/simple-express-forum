@@ -18,7 +18,7 @@
 
         <h2>Thread: <%= posts[0].threadId.topic %></h2>
         <br>
-
+        
         <% for(let i = ((page - 1) * 20); i < ((posts.length - (page - 1) * 20) > 20 ? (pageMax) : posts.length); i++) { %>
                 <div class="post" id="post<%= i + 1 %>"> 
                     <div class="post-user">
@@ -34,6 +34,7 @@
                 </div>
         <% } %>
         <br>
+
         <% for(let j = 1; j <= Math.ceil(posts.length / 20); j++) {%>
             <% if(j == page) { %>
                 <span><%= j %></span>
@@ -42,6 +43,7 @@
             <% } %>
         <% } %>
         <br><br>
+
         <h3>New post:</h3>
         <form method="POST" action="/home/<%= categoryId %>/post/<%= threadId %>">
             <textarea name="newPost" rows="14" cols="50"></textarea>
