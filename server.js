@@ -18,7 +18,7 @@ const dbRaw = fs.readFileSync('dbAuth.json');
 const dbAuth = JSON.parse(dbRaw);
 const { user, pwd, url } = dbAuth;
 
-mongoose.connect(process.env.MONGOLAB_URI || `mongodb://${user}:${pwd}@${url}`, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(process.env.MONGOLAB_URI || `mongodb://${user}:${pwd}@${url}`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 
