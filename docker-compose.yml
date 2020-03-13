@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    forum:
+        image: bestestforum:latest
+        container_name: forum
+        ports:
+            - "5000:5000"
+        networks: 
+            - forum-network
+
+    database:
+        image: mongo:3.6-xenial
+        container_name: database
+        expose: 
+            - "27017"
+        networks:
+            - forum-network
+        volumes:
+            - ./mongo:/etc/mongo
+            - /var/lib/mongodb:/data/db
+        command: 
+            - "mongod"
+            - "--auth"
+            
+networks:
+    forum-network:
+        driver: bridge

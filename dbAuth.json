@@ -1,5 +1,5 @@
 {
     "user" : "admin",
     "pwd" : "admin",
-    "url" : "localhost:27017/forumDB"
+    "url" : "database:27017/forumDB"
 }
